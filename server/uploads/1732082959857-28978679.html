@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title>React</title>
+		<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+		<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>	
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="text/babel">
+			// // Inline style in React
+			// // In JSX, JavaScript expressions are written inside curly braces, and since JavaScript objects also use curly braces, the styling in the example below is written inside two sets of curly braces {{}}.
+			// class Car extends React.Component {
+			// 	render() {
+					//  return <h2 style={{backgroundColor: "lightblue"}}>I am a Red Car!</h2>;   // hardcoded style  
+			// 	}
+			// }
+
+			// const root = ReactDOM.createRoot(document.getElementById('root'));
+			// root.render(<Car />);
+
+
+
+            // We can also define style in render and then render all react componants with that style
+            // All letters are displayed with the same background color yellow.
+
+			class Letter extends React.Component {
+				render() {
+					var letterStyle = {
+						backgroundColor: "#ffde00",
+						color: "#333",
+						display: "inline-block",
+						padding: "25px",
+						margin: "25px"
+					};
+					return <div style={letterStyle}>
+						{this.props.children}
+					</div>;
+				}
+			}
+
+			const root = ReactDOM.createRoot(document.getElementById('container'));
+			root.render(
+				<div>
+					<Letter>A</Letter>
+					<Letter>E</Letter>
+					<Letter>I</Letter>
+					<Letter>O</Letter>
+					<Letter>U</Letter>
+				</div>
+			);
+            // now what if i want diff bg color for each element...
+            
+		</script>
+	</body>
+</html>
+
